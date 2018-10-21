@@ -1,0 +1,13 @@
+  componentDidCatch(error, info) {
+    // Display fallback UI
+    this.setState({ hasError: error });
+    // You can also log the error to an error reporting service
+    console.log(error, info.componentStack);
+  }
+
+      if (this.state.hasError) {
+      return (<div>
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 >some error in child componet {this.state.hasError.toString()}</h1>  
+      </div>)
+    }

@@ -1,0 +1,24 @@
+npm install --save enzyme enzyme-adapter-react-16 react-test-renderer
+
+#### `src/setupTests.js`
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+
+
+import { shallow } from 'enzyme';
+
+
+it('renders without crashing', () => {
+  shallow(<App />);
+});
+
+import renderer from 'react-test-renderer';
+
+test('App renders correctly', () => {
+  const tree = renderer.create(
+    <App/>
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
